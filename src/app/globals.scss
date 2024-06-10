@@ -52,11 +52,12 @@ body {
     rounded-md shadow-md
     text-white bg-gray-900
     text-xs font-bold
-    transition-all duration-100 scale-0 origin-left;
+    transition-all duration-100 scale-0 origin-left
+    z-10
+    ;
   }
 
   .sacchetto {
-    width: 100%;
     @apply flex-1;
     
   }

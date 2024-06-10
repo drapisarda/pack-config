@@ -12,7 +12,7 @@ export function Model(props) {
 
   return (
     <group {...props} dispose={null}>
-      <group position={[17, -4, -9]} rotation={[Math.PI / 2, 0, 0]} scale={0.187}>
+      <group position={[17, -4, -8]} rotation={[Math.PI / 2, 0, 0]} scale={0.187}>
         <mesh geometry={nodes.sacchetto_diviso_interno_1.geometry} material={materials.Plastica5} />
         <mesh geometry={nodes.sacchetto_diviso_interno_2.geometry} material={materials.Plastica5} />
         <mesh geometry={nodes.sacchetto_diviso_interno_3.geometry} material={materials.Plastica5} />

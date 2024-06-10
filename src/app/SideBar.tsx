@@ -3,7 +3,7 @@ import { FaUpload, FaDownload } from "react-icons/fa";
 const SideBar = () => {
   return (
     <>
-      <div className="sidebar fixed top-0 left-0 h-screen w-16 m-0 flex flex-col bg-gray-900 text-white shadow-lg">
+      <div className="sidebar top-0 left-0 h-screen w-16 m-0 flex flex-col bg-gray-900 text-white shadow-lg">
         <SideBarIcon icon={<FaUpload size="28" />} text="tooltip!" />
         <SideBarIcon icon={<FaDownload size="28" />} text="tooltip!"/>
       </div>
