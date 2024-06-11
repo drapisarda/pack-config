@@ -7,11 +7,6 @@ import { useState } from "react";
 export default function Home() {
   const varA = '/img/med1.jpeg'
   const varB = '/img/med2.jpeg'
-  const [textureUrl, setTextureUrl] = useState(varA);
-
-  const switchTexture = () => {
-    setTextureUrl(textureUrl === varA ? varB : varA)
-  }
 
   const getBase64 = (file: String) => {
     return new Promise((resolve, reject) => {
@@ -25,10 +20,14 @@ export default function Home() {
   const handleFileChange = (e: Event) => {
     const file = e.target?.files[0]
     getBase64(file).then((base64) => {
-      localStorage["fileBase64"] = base64;
       setTextureUrl(base64);
     });
+  }
 
+  const [textureUrl, setTextureUrl] = useState(varA);
+  const switchTexture = () => {
+    console.log('switch')
+    setTextureUrl(textureUrl === varA ? varB : varA)
   }
 
   return (

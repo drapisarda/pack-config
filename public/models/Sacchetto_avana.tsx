@@ -5,7 +5,7 @@ Command: npx gltfjsx@6.2.18 sacchetto_avana.glb
 
 import React from 'react'
 import { useGLTF } from '@react-three/drei'
-import { Vector2 } from 'three'
+import { RepeatWrapping, Vector2 } from 'three'
 
 export function Model(props) {
   const { nodes, materials } = useGLTF('models/sacchetto_avana.glb')
@@ -19,19 +19,21 @@ export function Model(props) {
   if (texture) {
     texture.center = new Vector2(0.5, 0.5)
 
-    const cloneTexture = texture.clone()
-    cloneTexture.needsUpdate = true
-    const cloneTextureFlat = texture.clone()
-    cloneTextureFlat.needsUpdate = true
-
-    texturedMaterialSide.map = texture
+    texturedMaterialSide.map = texture.clone()
+    texturedMaterialSide.map.needsUpdate = true
     texturedMaterialSide.map.rotation = - Math.PI / 2
+    texturedMaterialSide.map.wrapS = RepeatWrapping
+    texturedMaterialSide.map.repeat.x = - 1
 
-    texturedMaterialFront.map = cloneTexture
+    texturedMaterialFront.map = texture.clone()
+    texturedMaterialFront.map.needsUpdate = true
     texturedMaterialFront.map.rotation = Math.PI / 2
 
-    texturedMaterialBack.map = cloneTextureFlat
+    texturedMaterialBack.map = texture.clone()
+    texturedMaterialBack.map.needsUpdate = true
     texturedMaterialBack.map.rotation = Math.PI / 1
+    texturedMaterialBack.map.wrapS = RepeatWrapping
+    texturedMaterialBack.map.repeat.x = - 1
   }
 
   return (
