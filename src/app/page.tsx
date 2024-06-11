@@ -26,7 +26,6 @@ export default function Home() {
 
   const [textureUrl, setTextureUrl] = useState(varA);
   const switchTexture = () => {
-    console.log('switch')
     setTextureUrl(textureUrl === varA ? varB : varA)
   }
 
