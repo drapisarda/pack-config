@@ -2,8 +2,8 @@
 
 import { Canvas } from '@react-three/fiber'
 import { Environment, OrbitControls, PerspectiveCamera } from "@react-three/drei";
-import { Suspense, useEffect } from "react";
-import { Texture, TextureLoader, Vector3 } from 'three'
+import { Suspense } from "react";
+import { TextureLoader, Vector3 } from 'three'
 import { Model as Avana } from '../../public/models/Sacchetto_avana'
 
 export default (props: { textureUrl: string }) => {

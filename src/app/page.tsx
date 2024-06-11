@@ -5,13 +5,13 @@ import SacchettoScene from "./SacchettoScene";
 import { useState } from "react";
 
 export default function Home() {
-  const varA = '/img/sb.png'
-  const varB = '/img/bb.png'
+  const varA = '/img/med1.jpeg'
+  const varB = '/img/med2.jpeg'
   const [textureUrl, setTextureUrl] = useState(varA);
 
-  // const switchTexture = () => {
-  //   setTextureUrl(textureUrl === varA ? varB : varA)
-  // }
+  const switchTexture = () => {
+    setTextureUrl(textureUrl === varA ? varB : varA)
+  }
 
   const getBase64 = (file: String) => {
     return new Promise((resolve, reject) => {
@@ -26,10 +26,9 @@ export default function Home() {
     const file = e.target?.files[0]
     getBase64(file).then((base64) => {
       localStorage["fileBase64"] = base64;
+      setTextureUrl(base64);
     });
 
-    const dataImage = localStorage.getItem("fileBase64") || '';
-    setTextureUrl(dataImage);
   }
 
   return (
@@ -48,6 +47,7 @@ export default function Home() {
             Dolor sit amet Dolor sit amet Dolor sit amet
           </p>
           <input id="file" type="file" onChange={handleFileChange} />
+          <button onClick={switchTexture}> Switch </button>
         </div>
         {/* <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
         <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
