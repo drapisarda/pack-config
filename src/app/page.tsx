@@ -17,34 +17,51 @@ export default function Home() {
     });
   };
 
-  const handleFileChange = (e: Event) => {
+  const handleFrontFileChange = (e: Event) => {
     const file = e.target?.files[0]
     getBase64(file).then((base64) => {
-      setTextureUrl(base64);
+      setTextureFrontUrl(base64);
     });
   }
 
-  const [textureUrl, setTextureUrl] = useState(varA);
-  const switchTexture = () => {
-    setTextureUrl(textureUrl === varA ? varB : varA)
+  const handleBackFileChange = (e: Event) => {
+    const file = e.target?.files[0]
+    getBase64(file).then((base64) => {
+      setTextureBackUrl(base64);
+    });
   }
+
+  const switchTexture = () => {
+  }
+
+  const [textureFrontUrl, setTextureFrontUrl] = useState(varA);
+  const [textureBackUrl, setTextureBackUrl] = useState(varB);
 
   return (
     <div className="page flex">
       <SideBar />
       <main className="grow overflow-hidden">
+        <p> front : {textureFrontUrl}</p>
+        <p> back : {textureBackUrl}</p>
         <div className="preview">
-          <SacchettoScene textureUrl={textureUrl} />
+          <SacchettoScene textureFrontUrl={textureFrontUrl} textureBackUrl={textureBackUrl} />
         </div>
         <div className="content p-5">
           <h1>
             Lorem Ipsum
           </h1>
           <p>
-            Dolor sit amet Dolor sit amet Dolor sit amet 
+            Dolor sit amet Dolor sit amet Dolor sit amet
             Dolor sit amet Dolor sit amet Dolor sit amet
           </p>
-          <input id="file" type="file" onChange={handleFileChange} />
+          <p>
+            <label htmlFor="fileFront"> Front file</label>
+            <input id="fileFront" type="file" onChange={handleFrontFileChange} />
+          </p>
+          <p>
+            <label htmlFor="fileBack"> Back file</label>
+            <input id="fileBack" type="file" onChange={handleBackFileChange} />
+          </p>
           <button onClick={switchTexture}> Switch </button>
         </div>
         {/* <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
