@@ -4,36 +4,41 @@ Command: npx gltfjsx@6.2.18 sacchetto_avana.glb
 */
 
 import { useGLTF } from '@react-three/drei'
-import { RepeatWrapping, Vector2 } from 'three'
+import { RepeatWrapping, Texture, Vector2 } from 'three'
 
-export function Model(props) {
-  const {textureFront, textureBack } = props
-  if (!textureFront && !textureBack) return
+export function Model(props: { textureFront: Texture, textureBack: Texture, textureSide: Texture }) {
+  const { textureFront, textureBack, textureSide } = props
 
-  const {nodes, materials } = useGLTF('models/sacchetto_avana.glb')
+  const { nodes, materials } = useGLTF('models/sacchetto_avana.glb')
   const defaultMaterial = materials.Plastica5.clone()
-  const texturedMaterialSide = defaultMaterial.clone()
   const texturedMaterialFront = defaultMaterial.clone()
   const texturedMaterialBack = defaultMaterial.clone()
+  const texturedMaterialSide = defaultMaterial.clone()
 
-  if (textureFront) textureFront.center = new Vector2(0.5, 0.5)
-  if (textureBack) textureBack.center = new Vector2(0.5, 0.5)
+  if (textureFront) {
+    textureFront.center = new Vector2(0.5, 0.5)
+    texturedMaterialFront.map = textureFront.clone()
+    texturedMaterialFront.map.needsUpdate = true
+    texturedMaterialFront.map.rotation = Math.PI / 2
+  }
 
-  texturedMaterialSide.map = textureFront ? textureFront.clone() : textureBack.clone()
-  texturedMaterialSide.map.needsUpdate = true
-  texturedMaterialSide.map.rotation = - Math.PI / 2
-  texturedMaterialSide.map.wrapS = RepeatWrapping
-  texturedMaterialSide.map.repeat.x = - 1
+  if (textureBack) {
+    textureBack.center = new Vector2(0.5, 0.5)
+    texturedMaterialBack.map = textureBack.clone()
+    texturedMaterialBack.map.needsUpdate = true
+    texturedMaterialBack.map.rotation = Math.PI / 1
+    texturedMaterialBack.map.wrapS = RepeatWrapping
+    texturedMaterialBack.map.repeat.x = - 1
+  }
 
-  texturedMaterialFront.map = textureFront.clone() || textureBack.clone()
-  texturedMaterialFront.map.needsUpdate = true
-  texturedMaterialFront.map.rotation = Math.PI / 2
-
-  texturedMaterialBack.map = textureBack.clone() || textureFront.clone()
-  texturedMaterialBack.map.needsUpdate = true
-  texturedMaterialBack.map.rotation = Math.PI / 1
-  texturedMaterialBack.map.wrapS = RepeatWrapping
-  texturedMaterialBack.map.repeat.x = - 1
+  if (textureSide) {
+    textureSide.center = new Vector2(0.5, 0.5)
+    texturedMaterialSide.map = textureSide.clone()
+    texturedMaterialSide.map.needsUpdate = true
+    texturedMaterialSide.map.rotation = - Math.PI / 2
+    texturedMaterialSide.map.wrapS = RepeatWrapping
+    texturedMaterialSide.map.repeat.x = - 1
+  }
 
   return (
     <group {...props} dispose={null}>

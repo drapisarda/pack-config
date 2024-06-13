@@ -7,6 +7,7 @@ import { useState } from "react";
 export default function Home() {
   const varA = '/img/med1.jpeg'
   const varB = '/img/med2.jpeg'
+  const varC = '/img/confetti.png'
 
   const getBase64 = (file: String) => {
     return new Promise((resolve, reject) => {
@@ -31,29 +32,35 @@ export default function Home() {
     });
   }
 
+  const handleSideFileChange = (e: Event) => {
+    const file = e.target?.files[0]
+    getBase64(file).then((base64) => {
+      setTextureSideUrl(base64);
+    });
+  }
+
   const switchTexture = () => {
+    setTextureFrontUrl(varC)
+    setTextureBackUrl(varA)
+    setTextureSideUrl(varB)
   }
 
   const [textureFrontUrl, setTextureFrontUrl] = useState(varA);
   const [textureBackUrl, setTextureBackUrl] = useState(varB);
+  const [textureSideUrl, setTextureSideUrl] = useState(varC);
 
   return (
     <div className="page flex">
       <SideBar />
       <main className="grow overflow-hidden">
-        <p> front : {textureFrontUrl}</p>
-        <p> back : {textureBackUrl}</p>
         <div className="preview">
-          <SacchettoScene textureFrontUrl={textureFrontUrl} textureBackUrl={textureBackUrl} />
+          <SacchettoScene 
+            textureFrontUrl={textureFrontUrl} 
+            textureBackUrl={textureBackUrl}
+            textureSideUrl={textureSideUrl}
+          />
         </div>
         <div className="content p-5">
-          <h1>
-            Lorem Ipsum
-          </h1>
-          <p>
-            Dolor sit amet Dolor sit amet Dolor sit amet
-            Dolor sit amet Dolor sit amet Dolor sit amet
-          </p>
           <p>
             <label htmlFor="fileFront"> Front file</label>
             <input id="fileFront" type="file" onChange={handleFrontFileChange} />
@@ -61,6 +68,10 @@ export default function Home() {
           <p>
             <label htmlFor="fileBack"> Back file</label>
             <input id="fileBack" type="file" onChange={handleBackFileChange} />
+          </p>
+          <p>
+            <label htmlFor="fileSide"> Side file</label>
+            <input id="fileSide" type="file" onChange={handleSideFileChange} />
           </p>
           <button onClick={switchTexture}> Switch </button>
         </div>
