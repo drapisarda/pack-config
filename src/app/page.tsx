@@ -3,20 +3,12 @@
 import SideBar from "./SideBar";
 import SacchettoScene from "./SacchettoScene";
 import { useState } from "react";
+import getBase64 from "../services/getBase64"
 
 export default function Home() {
   const varA = '/img/med1.jpeg'
   const varB = '/img/med2.jpeg'
   const varC = '/img/confetti.png'
-
-  const getBase64 = (file: String) => {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = () => resolve(reader.result);
-      reader.onerror = (error) => reject(error);
-      reader.readAsDataURL(file);
-    });
-  };
 
   const handleFrontFileChange = (e: Event) => {
     const file = e.target?.files[0]
