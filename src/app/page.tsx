@@ -3,7 +3,6 @@
 // import SideBar from "./SideBar";
 import SacchettoScene from "./SacchettoScene";
 import { useState } from "react";
-import getBase64 from "../services/getBase64"
 import ImageSelector from "./ImageSelector";
 
 export default function Home() {
