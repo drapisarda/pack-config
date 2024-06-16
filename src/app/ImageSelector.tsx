@@ -1,6 +1,5 @@
 import { Dispatch, SetStateAction } from "react"
 import getBase64 from "../services/getBase64"
-import styled from "styled-components"
 
 type Props = {
   imageSetter: Dispatch<SetStateAction<string>>,
@@ -21,7 +20,7 @@ export default function ImageSelector(props: Props) {
   }
 
   return (
-    <div className="image-selector border rounded-xl border-slate-200 p-5 shadow-2xl mb-4 backdrop-blur backdrop-opacity-100">
+    <div className="image-selector border rounded-xl border-slate-200 p-5 shadow-2xl mb-4 backdrop-blur-xl">
       <h3 className="text-lg border-b pb-1 ml-4 mr-4 mb-3 font-bold" htmlFor={inputId}>{label}</h3>
       <div className="mt-4 mb-4">
         <img className="rounded-xl max-h-64 m-auto" src={imageSrc} alt="Side image" />
