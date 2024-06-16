@@ -6,7 +6,7 @@ Command: npx gltfjsx@6.2.18 sacchetto_avana.glb
 import { useGLTF } from '@react-three/drei'
 import { RepeatWrapping, Texture, Vector2 } from 'three'
 
-export function Model(props: { textureFront: Texture, textureBack: Texture, textureSide: Texture }) {
+export function Model(props: { textureFront: Texture, textureBack: Texture, textureSide: Texture | undefined }) {
   const { textureFront, textureBack, textureSide } = props
 
   const { nodes, materials } = useGLTF('models/sacchetto_avana.glb')
