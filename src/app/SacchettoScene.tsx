@@ -23,7 +23,7 @@ export default (props: { textureFrontUrl: string, textureBackUrl: string, textur
             textureBack={textureBack} 
             textureSide={textureSide} 
           />
-          <Environment preset="park" background />
+          {/* <Environment preset="park" background /> */}
           <OrbitControls enableZoom={false} />
         </Suspense>
       </Canvas>
