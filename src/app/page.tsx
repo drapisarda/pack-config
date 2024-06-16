@@ -25,6 +25,7 @@ export default function Home() {
               label="Front image file"
               imageSrc={textureFrontUrl}
               imageSetter={setTextureFrontUrl}
+              description="This will be the front of this package"
             />
             <ImageSelector 
               label="Back image file"
