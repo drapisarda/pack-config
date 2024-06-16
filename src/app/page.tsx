@@ -18,7 +18,7 @@ export default function Home() {
     <div className="page">
       {/* <SideBar /> */}
       <main className="grow overflow-hidden flex container mx-auto">
-        <div className="basis-3/8 max-h-screen overflow-scroll">
+        <div className="basis-full md:basis-3/6 lg:basis-2/6 max-h-screen overflow-scroll">
           <div className="content p-5">
             <ImageSelector 
               label="Front image file"
@@ -38,7 +38,7 @@ export default function Home() {
             />
           </div>
         </div>
-        <div className="basis-5/8 overflow-hidden">
+        <div className="basis-full md:basis-3/6 lg:basis-4/6 overflow-hidden">
           <div className="preview">
             <SacchettoScene
               textureFrontUrl={textureFrontUrl}
