@@ -1,7 +1,7 @@
 'use client';
 
 import { Canvas } from '@react-three/fiber'
-import { Environment, OrbitControls, PerspectiveCamera } from "@react-three/drei";
+import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import { Suspense } from "react";
 import { TextureLoader, Vector3 } from 'three'
 import { Model as Avana } from '../../public/models/Sacchetto_avana'
