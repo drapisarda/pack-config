@@ -2,6 +2,8 @@ import * as THREE from 'three'
 import React, { useRef, useState } from 'react'
 import { Canvas, useFrame, ThreeElements } from '@react-three/fiber'
 
+// https://codesandbox.io/p/sandbox/gifted-varahamihira-rrppl0y8l4?file=%2Fsrc%2FApp.js%3A7%2C3-7%2C23
+
 function Box(props: ThreeElements['mesh']) {
   const ref = useRef<THREE.Mesh>(null!)
   const [hovered, hover] = useState(false)

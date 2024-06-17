@@ -4,9 +4,17 @@ Command: npx gltfjsx@6.2.18 sacchetto_avana.glb
 */
 
 import { useGLTF } from '@react-three/drei'
+import { useFrame } from '@react-three/fiber'
+import { useRef } from 'react'
 import { Mesh, MeshStandardMaterial, RepeatWrapping, Texture, Vector2 } from 'three'
 
-export function Model(props: { textureFront: Texture, textureBack: Texture, textureSide: Texture | undefined }) {
+type Props = {
+  textureFront: Texture,
+  textureBack: Texture, 
+  textureSide: Texture | undefined, 
+}
+
+export function Model(props: Props) {
   const { textureFront, textureBack, textureSide } = props
 
   const { nodes, materials } = useGLTF('models/sacchetto_avana.glb')
@@ -40,8 +48,12 @@ export function Model(props: { textureFront: Texture, textureBack: Texture, text
     texturedMaterialSide.map.repeat.x = - 1
   }
 
+
+  const ref = useRef()
+  useFrame((state, delta) => ref.current ? ref.current.rotation.y += delta : {})
+
   return (
-    <group {...props} dispose={null}>
+    <group dispose={null} ref={ref}>
       <group position={[17, -4, -8]} rotation={[Math.PI / 2, 0, 0]} scale={0.187}>
         <mesh geometry={(nodes.sacchetto_diviso_interno_1 as Mesh).geometry} material={defaultMaterial} />
 
