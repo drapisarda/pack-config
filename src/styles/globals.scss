@@ -44,6 +44,10 @@ body {
     @apply bg-gray-900
   }
 
+  .image-selector {
+    max-width: 80vw;
+  }
+
   .sidebar-icon {
     @apply relative flex items-center justify-center 
       h-12 w-12 p-3 mt-2 mb-2 mx-auto shadow-lg
