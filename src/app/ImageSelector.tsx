@@ -16,7 +16,7 @@ type Props = {
 
 export default function ImageSelector(props: Props) {
   const { imageSetter, imageSrc, label, description } = props
-  const inputId = 'file' + Math.floor(Math.random() * 3000)
+  const inputId = 'file' + label
 
   const onChangeHandle = (e: ChangeEvent<HTMLInputElement>) => {
     const {files} = e.target as HTMLInputElement
