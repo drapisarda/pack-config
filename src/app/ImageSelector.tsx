@@ -31,6 +31,7 @@ export default function ImageSelector(props: Props) {
       <label className="text-lg border-b pb-1 ml-4 mr-4 mb-3 font-bold" htmlFor={inputId}>{label}</label>
       <div className="mt-4 mb-4">
         <Image 
+          priority={true}
           className="rounded-xl max-h-64 m-auto h-full" 
           width={150} 
           height={0}
