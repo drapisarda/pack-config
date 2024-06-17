@@ -1,12 +1,18 @@
-'use client';
-
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import { Suspense } from "react";
 import { TextureLoader, Vector3 } from 'three'
 import { Model as Avana } from '../../public/models/Sacchetto_avana'
 
-const SacchettoScene = (props: { textureFrontUrl: string, textureBackUrl: string, textureSideUrl: string }) => {
+type Props = { 
+  textureFrontUrl: string, 
+  textureBackUrl: string, 
+  textureSideUrl: string 
+}
+
+const SacchettoScene = (props: Props) => {
+  if (typeof document === 'undefined' ) return
+
   const { textureFrontUrl, textureBackUrl, textureSideUrl} = props
   const textureFront = new TextureLoader().load(textureFrontUrl)
   const textureBack = new TextureLoader().load(textureBackUrl)
