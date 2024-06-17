@@ -6,9 +6,9 @@ import { useEffect, useState } from "react";
 import ImageSelector from "./ImageSelector";
 
 export default function Home() {
-  const varA = '/img/med1.jpeg'
-  const varB = '/img/med2.jpeg'
-  const varC = '/img/confetti.png'
+  const varA = '/img/pattern-1.jpeg'
+  const varB = '/img/pattern-2.jpeg'
+  const varC = '/img/pattern-3.jpeg'
 
   const [textureFrontUrl, setTextureFrontUrl] = useState(varA)
   const [textureBackUrl, setTextureBackUrl] = useState(varB)
