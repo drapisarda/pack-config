@@ -6,7 +6,7 @@ import { Suspense } from "react";
 import { TextureLoader, Vector3 } from 'three'
 import { Model as Avana } from '../../public/models/Sacchetto_avana'
 
-export default (props: { textureFrontUrl: string, textureBackUrl: string, textureSideUrl: string }) => {
+const SacchettoScene = (props: { textureFrontUrl: string, textureBackUrl: string, textureSideUrl: string }) => {
   const { textureFrontUrl, textureBackUrl, textureSideUrl} = props
   const textureFront = new TextureLoader().load(textureFrontUrl)
   const textureBack = new TextureLoader().load(textureBackUrl)
@@ -30,3 +30,5 @@ export default (props: { textureFrontUrl: string, textureBackUrl: string, textur
     </div>
   )
 }
+
+export default SacchettoScene

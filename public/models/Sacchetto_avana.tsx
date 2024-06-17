@@ -4,13 +4,13 @@ Command: npx gltfjsx@6.2.18 sacchetto_avana.glb
 */
 
 import { useGLTF } from '@react-three/drei'
-import { RepeatWrapping, Texture, Vector2 } from 'three'
+import { Mesh, MeshStandardMaterial, RepeatWrapping, Texture, Vector2 } from 'three'
 
 export function Model(props: { textureFront: Texture, textureBack: Texture, textureSide: Texture | undefined }) {
   const { textureFront, textureBack, textureSide } = props
 
   const { nodes, materials } = useGLTF('models/sacchetto_avana.glb')
-  const defaultMaterial = materials.Plastica5.clone()
+  const defaultMaterial = materials.Plastica5.clone() as MeshStandardMaterial
   const texturedMaterialFront = defaultMaterial.clone()
   const texturedMaterialBack = defaultMaterial.clone()
   const texturedMaterialSide = defaultMaterial.clone()
@@ -43,19 +43,19 @@ export function Model(props: { textureFront: Texture, textureBack: Texture, text
   return (
     <group {...props} dispose={null}>
       <group position={[17, -4, -8]} rotation={[Math.PI / 2, 0, 0]} scale={0.187}>
-        <mesh geometry={nodes.sacchetto_diviso_interno_1.geometry} material={defaultMaterial} />
+        <mesh geometry={(nodes.sacchetto_diviso_interno_1 as Mesh).geometry} material={defaultMaterial} />
 
         {/* left */}
-        <mesh geometry={nodes.sacchetto_diviso_interno_2.geometry} material={texturedMaterialSide} />
+        <mesh geometry={(nodes.sacchetto_diviso_interno_2 as Mesh).geometry} material={texturedMaterialSide} />
 
         {/* front */}
-        <mesh geometry={nodes.sacchetto_diviso_interno_3.geometry} material={texturedMaterialFront} />
+        <mesh geometry={(nodes.sacchetto_diviso_interno_3 as Mesh).geometry} material={texturedMaterialFront} />
 
         {/* right */}
-        <mesh geometry={nodes.sacchetto_diviso_interno_4.geometry} material={texturedMaterialSide} />
+        <mesh geometry={(nodes.sacchetto_diviso_interno_4 as Mesh).geometry} material={texturedMaterialSide} />
 
         {/* back */}
-        <mesh geometry={nodes.sacchetto_diviso_interno_5.geometry} material={texturedMaterialBack} />
+        <mesh geometry={(nodes.sacchetto_diviso_interno_5 as Mesh).geometry} material={texturedMaterialBack} />
       </group>
     </group>
   )
