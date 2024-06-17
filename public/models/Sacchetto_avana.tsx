@@ -6,7 +6,7 @@ Command: npx gltfjsx@6.2.18 sacchetto_avana.glb
 import { useGLTF } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import { useRef } from 'react'
-import { Mesh, MeshStandardMaterial, RepeatWrapping, Texture, Vector2 } from 'three'
+import { Group, Mesh, MeshStandardMaterial, RepeatWrapping, Texture, Vector2 } from 'three'
 
 type Props = {
   textureFront: Texture,
@@ -49,11 +49,11 @@ export function Model(props: Props) {
   }
 
 
-  const ref = useRef()
-  useFrame((state, delta) => ref.current ? ref.current.rotation.y += delta : {})
+  const groupRef = useRef<Group>(null)
+  useFrame((state, delta) => groupRef.current ? groupRef.current.rotation.y += delta : {})
 
   return (
-    <group dispose={null} ref={ref}>
+    <group dispose={null} ref={groupRef}>
       <group position={[17, -4, -8]} rotation={[Math.PI / 2, 0, 0]} scale={0.187}>
         <mesh geometry={(nodes.sacchetto_diviso_interno_1 as Mesh).geometry} material={defaultMaterial} />
 
