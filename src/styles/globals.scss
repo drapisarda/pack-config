@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@tailwind screens;
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -38,7 +39,7 @@ body {
   }
 }
 
-@layer components {
+@layer components { 
   .sidebar {
     @apply bg-gray-900
   }

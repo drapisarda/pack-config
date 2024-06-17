@@ -19,8 +19,8 @@ const SacchettoScene = (props: Props) => {
   const textureSide = textureSideUrl ? new TextureLoader().load(textureSideUrl) : undefined
 
   return (
-    <div className="sacchetto">
-      <Canvas className="sacchetto__canvas">
+    <div className="sacchetto h-full">
+      <Canvas className="sacchetto__canvas h-full">
         <Suspense fallback={null}>
           <ambientLight intensity={2} />
           <PerspectiveCamera makeDefault position={new Vector3(0, 0, -10)} />
