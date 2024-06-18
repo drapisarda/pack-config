@@ -35,7 +35,7 @@ export default function ImageSelector(props: Props) {
           alt="Side image" />
       </div>
       <div className="order-4 w-full md:w-auto text-center mb:py-2 md:mb-5">
-        <label className="rounded-xl py-2 px-4 border border-slate-200 shadow-xl" htmlFor={inputId}> Chose a new image </label>
+        <label className="rounded-xl py-2 px-4 border border-slate-200 shadow-xl cursor-pointer" htmlFor={inputId}> Chose a new image </label>
         <input id={inputId} type="file" onChange={(e) => onChangeHandle(e)} className="hidden"/>
       </div>
       <p className="mt-2 md:mt-5 basis-1/2 order-3 px-2 md:px-0">
