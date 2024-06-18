@@ -23,7 +23,7 @@ export default function ImageSelector(props: Props) {
   }
 
   return (
-    <div className="image-selector flex flex-wrap md:block h-full border rounded-xl border-slate-200 p-3 md:p-5 shadow-2xl text-black bg-white md:mb-4 md:h-auto">
+    <div className="image-selector flex flex-wrap md:block h-full border rounded-xl border-slate-200 p-3 md:p-5 text-black bg-white md:mb-4 md:h-auto">
       <h3 className="text-lg basis-full border-b pb-1 mx-1 md:mx-4 mb-1 md:mb-3 font-bold">{label}</h3>
       <div className="my-2 md:my-4 basis-1/2">
         <Image 

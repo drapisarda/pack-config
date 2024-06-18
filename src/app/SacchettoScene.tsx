@@ -22,7 +22,9 @@ const SacchettoScene = (props: Props) => {
     <div className="sacchetto h-full">
       <Canvas className="sacchetto__canvas h-full">
         <Suspense fallback={null}>
-          <ambientLight intensity={2} />
+          <ambientLight intensity={Math.PI / 2} />
+          <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} decay={0} intensity={Math.PI} />
+          <pointLight position={[-10, -10, -10]} decay={0} intensity={Math.PI} />
           <PerspectiveCamera makeDefault position={new Vector3(0, 0, -11)} />
           <Avana 
             textureFront={textureFront} 
