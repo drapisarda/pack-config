@@ -21,8 +21,8 @@ export default function Home() {
   return (
     <div className="page">
       <main className="grow overflow-hidden flex flex-wrap flex-col md:flex-row container mx-auto w-full max-w-full md:max-w-screen-lg h-svh">
-        <div className="image-selectors basis-1/3 w-full order-3 md:order-1 md:basis-3/6 lg:basis-2/6 max-h-screen overflow-scroll">
-          <div className="content p-3 md:p-5 flex md:block items-stretch max-w-screen-sm gap-5 h-full">
+        <div className="image-selectors basis-1/3 w-full order-3 md:order-1 md:basis-3/6 lg:basis-2/6 max-h-screen">
+          <div className="content p-3 md:p-5 flex md:block items-stretch max-w-screen-sm gap-5 h-full overflow-scroll">
             <div className="basis-1/3 md:basis-full">
               <ImageSelector
                 label="Front image file"

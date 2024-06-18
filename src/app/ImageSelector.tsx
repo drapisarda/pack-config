@@ -28,16 +28,16 @@ export default function ImageSelector(props: Props) {
       <div className="my-2 md:my-4 basis-1/2">
         <Image 
           priority={true}
-          className="rounded-xl max-h-32 md:max-h-64 max-w-64 m-auto h-full" 
+          className="rounded-xl max-h-32 md:max-h-64 max-w-64 m-auto h-full w-auto" 
           width="150" 
           height="200"
           src={imageSrc}
           alt="Side image" />
       </div>
-      <div className="basis-full order-4">
+      <div className="basis-full order-4 overflow-hidden">
         <input id={inputId} type="file" onChange={(e) => onChangeHandle(e)} />
       </div>
-      <p className="mt-4 basis-1/2 order-3">
+      <p className="my-2 md:my-4 basis-1/2 order-3 px-2 md:px-0">
         {description}
       </p>
     </div>
