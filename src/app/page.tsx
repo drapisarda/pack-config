@@ -21,9 +21,9 @@ export default function Home() {
   return (
     <div className="page">
       <main className="grow overflow-hidden flex flex-wrap md:flex-nowrap flex-col md:flex-row container mx-auto w-full max-w-full md:max-w-screen-lg h-svh">
-        <div className="image-selectors basis-1/3 w-full order-3 md:order-1 md:basis-3/6 lg:basis-2/6 max-h-screen">
-          <div className="content p-3 md:p-5 flex md:block items-stretch max-w-screen-sm gap-5 h-full overflow-scroll">
-            <div className="basis-1/3 md:basis-full">
+        <div className="image-selectors basis-1/3 w-full order-3 md:order-1 max-h-screen">
+          <div className="content p-3 md:py-5 flex md:block items-stretch gap-5 h-full overflow-scroll">
+            <div className="md:basis-full min-w-64">
               <ImageSelector
                 label="Front image file"
                 imageSrc={textureFrontUrl}
@@ -31,7 +31,7 @@ export default function Home() {
                 description="This will be the front of this package"
               />
             </div>
-            <div className="basis-1/3 md:basis-full">
+            <div className="basis-1/3 md:basis-full min-w-64">
               <ImageSelector
                 label="Back image file"
                 imageSrc={textureBackUrl}
@@ -39,7 +39,7 @@ export default function Home() {
                 description="This will be the back of this package"
               />
             </div>
-            <div className="basis-1/3 md:basis-full">
+            <div className="basis-1/3 md:basis-full min-w-64">
               <ImageSelector
                 label="Side image file"
                 imageSrc={textureSideUrl}
@@ -49,7 +49,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="basis-2/3 order-2 md:basis-3/6 lg:basis-4/6 overflow-hidden max-w-full max-h-full">
+        <div className="basis-2/3 order-2 md:basis-2/3 overflow-hidden max-w-full max-h-full">
           <div className="preview h-full">
             {isClient &&
               <SacchettoScene
