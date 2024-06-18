@@ -23,7 +23,7 @@ const SacchettoScene = (props: Props) => {
       <Canvas className="sacchetto__canvas h-full">
         <Suspense fallback={null}>
           <ambientLight intensity={2} />
-          <PerspectiveCamera makeDefault position={new Vector3(0, 0, -10)} />
+          <PerspectiveCamera makeDefault position={new Vector3(0, 0, -11)} />
           <Avana 
             textureFront={textureFront} 
             textureBack={textureBack} 
