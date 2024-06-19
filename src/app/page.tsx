@@ -20,7 +20,7 @@ export default function Home() {
 
   return (
     <div className="page">
-      <main className="grow overflow-hidden flex flex-wrap md:flex-nowrap flex-col md:flex-row container mx-auto w-full max-w-full md:max-w-screen-lg h-svh">
+      <main className="grow overflow-hidden flex md:flex-nowrap flex-col md:flex-row container mx-auto w-full max-w-full md:max-w-screen-lg h-svh">
         <div className="image-selectors basis-1/3 w-full order-3 md:order-1 max-h-screen">
           <div className="content p-3 md:py-5 flex md:block items-stretch gap-5 h-full overflow-scroll">
             <div className="md:basis-full min-w-64">
