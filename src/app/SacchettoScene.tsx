@@ -32,7 +32,7 @@ const SacchettoScene = (props: Props) => {
             textureSide={textureSide} 
           />
           {/* <Environment preset="park" background /> */}
-          <OrbitControls enableZoom={false} />
+          <OrbitControls enableZoom={false} enablePan={false} maxZoom={2} minZoom={0.5} />
         </Suspense>
       </Canvas>
     </div>
