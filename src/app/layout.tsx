@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "../styles/globals.scss";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const metadata: Metadata = {
   title: "Configure your package",
@@ -14,6 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>{children}</body>
+      <SpeedInsights />
     </html>
   );
 }
