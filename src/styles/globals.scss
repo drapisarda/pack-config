@@ -74,5 +74,16 @@ body {
   .sacchetto__canvas canvas {
     height: 80svh;
   }
+
+  .image-selector {
+    &__image {
+      height: 20svh;
+      margin: auto;
+
+      img {
+        object-fit: cover;
+      }
+    }
+  }
 }
 
